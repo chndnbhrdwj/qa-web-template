@@ -26,10 +26,10 @@ Feature: Sample
     Then the result should be displayed for selected option
 
     Examples:
-    | MenuOption    | SubMenuOption |
-    | Jewellery     | Anklets       |
-    | Entertainment | Poetry        |
-    | Weddings      | Hats          |
+      | MenuOption    | SubMenuOption |
+      | Jewellery     | Anklets       |
+      | Entertainment | Poetry        |
+      | Weddings      | Hats          |
 
 
   @ui @screenplay
@@ -39,26 +39,25 @@ Feature: Sample
     Then the result should be displayed for selected option
 
     Examples:
-    | Icon      |
-    | Clothing  |
-    | Jewellery |
-    | Weddings  |
+      | Icon      |
+      | Clothing  |
+      | Jewellery |
+      | Weddings  |
 
-  @ui @wip
-    Scenario: Should be able to sort by Highest price
+  @api
+  Scenario Outline: Should return search api results
+    Given Peter want to call api to search for <Search Text>
+    When he make the search api call
+    Then he should see the results in response
 
-  @ui @wip
-    Scenario: Should be able to sort by Lowest price
+    Examples:
+      | Search Text |
+      | Baby        |
+      | Blanket     |
+      | Bike        |
 
-  @ui @wip
-    Scenario: Should be able to filter results by Shop location
-
-  @ui @wip
-    Scenario: Should be able to filter results by Price
-
-  @ui @wip
-    Scenario: Should be able to filter results by Ship to
-
-  @ui @wip
-    Scenario: Should be able to filter results by Ordering options
-
+    @api
+    Scenario: Should see the navigation categories in api response
+      Given Peter want to call api for navigation categories
+      When he make the categories api call
+      Then he should see the categories in response

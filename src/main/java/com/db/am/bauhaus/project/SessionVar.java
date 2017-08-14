@@ -5,5 +5,6 @@ package com.db.am.bauhaus.project;
  */
 public enum SessionVar {
     SEARCH_TEXT,
-    SELECT_TEXT;
+    SELECT_TEXT,
+    PATH;
 }
