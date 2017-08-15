@@ -7,6 +7,7 @@ import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Step;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -36,8 +37,13 @@ public class ApiActions {
     }
 
     @Step
-    public boolean doesResponseContainsCategories() {
-        return false;
+    public List<String> doesResponseContainsCategories() {
+        return SerenityRest.then().extract().body().jsonPath().get("data.roots.node.name");
+    }
+
+    @Step
+    public int getStatusCode(){
+        return SerenityRest.then().extract().statusCode();
     }
 
     private void callApi(API_PATH path, Map<String, ?> params) {
