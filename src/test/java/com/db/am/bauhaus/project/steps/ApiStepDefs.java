@@ -63,7 +63,7 @@ public class ApiStepDefs {
         }
     }
 
-    @Then("^he should see the response status code (\\d+)$")
+    @Then("^he should receive the response status code (\\d+)$")
     public void heShouldSeeTheResponseStatusCode(int arg0) throws Throwable {
         assertTrue(
                 apiActions.getStatusCode() == arg0

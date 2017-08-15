@@ -48,7 +48,7 @@ Feature: Sample
   Scenario Outline: Should return search api results
     Given Peter want to call api to search for <Search Text>
     When Peter make the search api call
-    Then he should see the response status code 200
+    Then he should receive the response status code 200
     And he should see the results in response
 
     Examples:
@@ -60,7 +60,7 @@ Feature: Sample
     @api
     Scenario: Should see the navigation categories in api response
       When Peter make the categories api call
-      Then he should see the response status code 200
+      Then he should receive the response status code 200
       And he should see the categories in response
       | Clothing & Accessories  |
       | Jewelry                 |
